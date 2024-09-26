@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <h2>Produtos Cadastrados</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="d-none d-md-table-cell">Código</th>
+                    <th>Descrição</th>
+                    <th>Categoria</th>
+                    <th class="d-none d-md-table-cell">Unidade</th>
+                    <th class="d-none d-md-table-cell">Peso</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td class="d-none d-md-table-cell">{{ product.cod }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>{{ product.category }}</td>
+                    <td class="d-none d-md-table-cell">{{ product.unity }}</td>
+                    <td class="d-none d-md-table-cell">{{ product.weight }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

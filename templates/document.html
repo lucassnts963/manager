@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Documento: {{ document.identifier }}</h2>
+    <p>{{ document.description }}</p>
+
+    <h3>Materiais:</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Descrição</th>
+                <th>Quantidade</th>
+                <th>Aplicação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for need in needs %}
+                <tr>
+                    <td>{{ need.product.cod }}</td>
+                    <td>{{ need.product.description }}</td>
+                    <td>{{ "%.3f" | format(need.quantity) }}</td>
+                    <td>{{ need.aplication }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
